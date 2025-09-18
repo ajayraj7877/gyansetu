@@ -1,2 +1,71 @@
-node_modules/ 
-.env 
+# This file tells Git which files to ignore in your project.
+
+# Dependencies
+/node_modules/
+/jspm_packages/
+/web_modules/
+
+# Logs and debug files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build and cache directories
+.gradle/
+.cache/
+.parcel-cache/
+.nyc_output/
+.grunt/
+.npm/
+.eslintcache/
+.stylelintcache/
+.next/
+out/
+.nuxt/
+dist/
+.vuepress/dist/
+.temp/
+.svelte-kit/
+**/.vitepress/dist/
+**/.vitepress/cache/
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+.firebase/
+build/Release/
+
+# Compiled files
+*.tsbuildinfo
+*.tgz
+*.pid
+*.seed
+*.pid.lock
+
+# Other ignores
+/local.properties
+/gen/
+/out/
+/bin/
+.lock-wscript
+.tern-port
+.vscode-test
+.yarn-integrity
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
