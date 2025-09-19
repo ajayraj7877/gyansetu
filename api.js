@@ -38,13 +38,16 @@ app.post("/wallet/spend", async (req, res) => {
 
 // ✅ New API: Get Balance
 app.post("/wallet/getBalance", async (req, res) => {
+  console.log("Request body:", req.body); // <-- Debug line
   try {
     const result = await getBalance(req.body.userId);
     res.json(result);
   } catch (e) {
+    console.log(e); // <-- Debug errors
     res.status(400).json({ success: false, message: e.message });
   }
 });
+
 
 // Quiz APIs
 app.post("/quiz/join", async (req, res) => {
