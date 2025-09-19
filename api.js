@@ -1,5 +1,7 @@
 const express = require("express");
-const { addMoney, withdrawMoney, spendMoney } = require("./walletController");
+
+
+const { addMoney, withdrawMoney, spendMoney, getBalance } = require("./walletController");
 const { joinQuiz, rewardWinner } = require("./quizController");
 require("dotenv").config();
 
@@ -34,6 +36,16 @@ app.post("/wallet/spend", async (req, res) => {
   }
 });
 
+// ✅ New API: Get Balance
+app.post("/wallet/getBalance", async (req, res) => {
+  try {
+    const result = await getBalance(req.body.userId);
+    res.json(result);
+  } catch (e) {
+    res.status(400).json({ success: false, message: e.message });
+  }
+});
+
 // Quiz APIs
 app.post("/quiz/join", async (req, res) => {
   try {
@@ -52,9 +64,12 @@ app.post("/quiz/reward", async (req, res) => {
     res.status(400).json({ success: false, message: e.message });
   }
 });
+
 app.get("/", (req, res) => {
   res.send("Welcome to GyanSetu Wallet API 🚀");
 });
+
+
 
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
