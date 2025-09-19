@@ -89,8 +89,9 @@ async function getBalance(userId) {
   if (rows.length === 0) {
     return { success: false, message: "Wallet not found", balance: 0 };
   }
-  return { success: true, balance: rows[0].balance };
+  return { success: true, message: "Balance fetched successfully", balance: rows[0].balance };
 }
+
 
 module.exports = {
   addMoney,
